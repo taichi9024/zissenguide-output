@@ -1,0 +1,14 @@
+<%= @title = "ログイン"%>
+
+<%= form_with model: @form, url: :staff_session do |f| %>
+    
+    <div class="form-group mt-5">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.text_field :email , class: "form-control" %>
+    
+    <div class="form-group">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password , class: "form-control" %>
+
+    <%= f.submit "ログインする", class:"btn btn-primary" %>
+<% end %>

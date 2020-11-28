@@ -13,6 +13,8 @@
   <div class="wrapper">
   <%= render "shared/header" %>
   <div class="container" >
+  <%= content_tag(:span, flash.notice, class:"notice") if flash.notice %>
+  <%= content_tag(:span, flash.alert, class:"alert") if flash.alert %>
     <%= yield %>
     </div>
   <%= render "shared/footer" %>

@@ -1,8 +1,9 @@
 <div class="bg-light">
 <span>職員管理アプリ</span>
-<% if current_staff_member %>
+<% if session[:staff_member_id] %>
   <%= link_to "ログアウト", :staff_session, method: :delete %>
 <% else %>
-  <%= link_to "ログイン", :staff_session %>
+  <%= link_to "ログイン", :staff_login %>
+
 <% end %>
   </div>
