@@ -1,0 +1,5 @@
+<% if @error == ApplicationController::Forbidden  %>
+  <%= 閲覧権限がありません%>
+<% else %>
+  <%= "IPアドレス#{request.path_info}からは閲覧できません" %>
+<% end %>
