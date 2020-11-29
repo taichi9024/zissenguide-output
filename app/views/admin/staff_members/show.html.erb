@@ -1,0 +1,11 @@
+<div class="text-center">
+<p><%= @staffmember.family_name  +  @staffmember.given_name %></p>
+<p><%= @staffmember.family_name_kana  +  @staffmember.given_name_kana %></p>
+<p><%= @staffmember.start_date %></p>
+<p><%= "未定" unless @staffmember.end_date %></p>
+<% if @staffmember.suspend %>
+  <p>"停止中"</p>
+<% else %>
+  <p>""</p>
+<% end %>
+</div>

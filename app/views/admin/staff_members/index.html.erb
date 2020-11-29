@@ -1,0 +1,11 @@
+<span><%=link_to "新規登録",:new_admin_staff_member , class:"text-right" %></span>
+<main>
+<% @staffmembers.each do |staff| %>
+    <div class="mt-3 mb-3">名前：<span><%=link_to staff.family_name + staff.given_name, admin_staff_member_path(staff) %></span></div>
+    <div class="mt-3 mb-3">名前カナ：<span><%= staff.family_name_kana %></span><span><%= staff.given_name_kana %></span></div>
+    <div class="mt-3 mb-3">開始日時: <span><%= staff.start_date %></span></div>
+    <div class="mt-3 mb-3">終了日時: <span class= "border-danger"><%= staff.end_date %></span></div>
+    <span><%= link_to "編集", edit_admin_staff_member_path(staff) , class:"btn btn-primary"%></span>
+    <span><%= link_to "削除", admin_staff_member_path(staff), method: :"delete", class:"btn btn-danger", data:{confirm: "削除してもいいですか？"} %></span>
+<% end %>
+</main>
