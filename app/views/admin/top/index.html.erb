@@ -1,1 +1,5 @@
-<p>here</p>
+<h1>管理者ページ</h1>
+
+<% if session[:current_administrator_id] %>
+<li><%= link_to "職員管理", :admin_staff_members %></li>
+<% end %>
