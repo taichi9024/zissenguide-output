@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title%></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'customer', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="wrapper">
+  <%= render "shared/header" %>
+  <div class="container" >
+  <%= content_tag(:span, flash.notice, class:"notice") if flash.notice %>
+  <%= content_tag(:span, flash.alert, class:"alert") if flash.alert %>
+    <%= yield %>
+    </div>
+  <%= render "shared/footer" %>
+  </body>
+  </div>
+</html>
