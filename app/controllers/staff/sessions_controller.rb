@@ -16,6 +16,7 @@ class Staff::SessionsController < Staff::Base
         end
         if Staff::Authenticator.new(staff_member).authenticate(@form.password)
                 session[:staff_member_id] = staff_member.id
+                session[:last_access_id]  = Time.current 
                 logger.debug "iiiiiiiiii#{session[:staff_member_id].inspect}"
                 flash.notice = "ログインしました"
                 redirect_to :staff_root

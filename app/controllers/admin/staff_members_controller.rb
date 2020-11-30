@@ -41,6 +41,8 @@ class Admin::StaffMembersController < Admin::Base
         redirect_to :admin_staff_members
     end
 
+    private
+
     def staff_params
         params.require(:staff_member).permit(:email,:family_name, :given_name, :family_name_kana, :given_name_kana, :password, :start_date , :end_date)
     end
