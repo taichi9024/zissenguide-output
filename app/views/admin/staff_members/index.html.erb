@@ -6,6 +6,7 @@
     <div class="mt-3 mb-3">開始日時: <span><%= staff.start_date %></span></div>
     <div class="mt-3 mb-3">終了日時: <span class= "border-danger"><%= staff.end_date %></span></div>
     <span><%= link_to "編集", edit_admin_staff_member_path(staff) , class:"btn btn-primary"%></span>
+    <%= link_to "EVENTS", admin_staff_member_staff_events_path(staff) %>
     <span><%= link_to "削除", admin_staff_member_path(staff), method: :"delete", class:"btn btn-danger", data:{confirm: "削除してもいいですか？"} %></span>
 <% end %>
 </main>

@@ -1,5 +1,7 @@
 class StaffMember < ApplicationRecord
 
+  has_many :events, class_name: "StaffEvent", dependent: :destroy
+
     def password=(raw_password)
         if raw_password.kind_of?(String)
           self.hash_password = BCrypt::Password.create(raw_password)

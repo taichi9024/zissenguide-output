@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     get "login" => "sessions#new", as: :login
     post "session" => "sessions#create", as: :session
     delete "session" => "sessions#destroy"
-    resources :staff_members
+    resources :staff_events, only: [:index]
+    resources :staff_members do
+      resources :staff_events, only: [:index]
+    end
   end
 
   namespace :customer do

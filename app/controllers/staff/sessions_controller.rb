@@ -17,6 +17,7 @@ class Staff::SessionsController < Staff::Base
         if Staff::Authenticator.new(staff_member).authenticate(@form.password)
                 session[:staff_member_id] = staff_member.id
                 session[:last_access_time]  = Time.current 
+                staff_member.events.create(type: "ログイン")
                 logger.debug "iiiiiiiiii#{session[:staff_member_id].inspect}"
                 logger.debug "iiiiiiiiii#{session[:staff_access_time].inspect}"
                 flash.notice = "ログインしました"
@@ -28,6 +29,7 @@ class Staff::SessionsController < Staff::Base
     end
 
     def destroy
+        current_staff_member.events.create(type:"ログアウト")
         session.delete(:staff_member_id)
         flash.alert = "ログアウトしました"
         redirect_to :staff_root

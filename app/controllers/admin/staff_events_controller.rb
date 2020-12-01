@@ -1,0 +1,10 @@
+class Admin::StaffEventsController < Admin::Base
+    def index
+        if params[:staff_member_id]
+            @staff_member = StaffMember.find_by(id: params[:staff_member_id])
+            @events = @staff_member.events.all
+
+        end
+
+    end
+end
